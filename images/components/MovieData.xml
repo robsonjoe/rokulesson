@@ -1,0 +1,47 @@
+<!-- MOVIEDATA.XML -->
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="movieData" extends="Group" >
+    <children>
+        <LayoutGroup layoutDirection="vert" vertAlignment="vert" horizAlignment="center" itemSpacings="30" translation="[0,0]" >
+            <Label id="movieTitleText" color="0x000000" horizAlign="left" translation="[0,0]" font="font:MediumBoldSystemFont" width="600" height="40" text="Title" />
+            <Label id="releaseDate" color="0x000000" horizAlign="left" translation="[0,0]" font="font:SmallsystemFont" width="700" height="30" text=""/>
+             <Label id="rating" color="0x000000" horizAlign="left" translation="[0,0]" font="font:SmallsystemFont" width="700" height="30" text=""/>
+            <Label id="tagline" color="0x000000" horizAlign="left" translation="[0,0]" font="font:SmallsystemFont" width="700" height="90" text=""  wrap="true"/>
+            <Label id="overview" color="0x000000" horizAlign="left" translation="[0,0]" font="font:SmallestSystemFont" width="700" height="400" text="Total and Type" wrap="true"/>
+         </LayoutGroup>
+    </children>
+</component>
+
+<!-- HOME_SCENE.XML -->
+
+<RadioButtonList
+    id="category_list"
+    translation="[100, 550]"
+    itemSize="[400,48]"
+>
+<ContentNode id = "movies" role = "content" >
+    <category_node title = "TOP GUN" feed_url="https://api.themoviedb.org/3/movie/744?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "THE MATRIX" feed_url="https://api.themoviedb.org/3/movie/603?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "PULP FICTION" feed_url="https://api.themoviedb.org/3/movie/680?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "LORD OF THE RINGS" feed_url="https://api.themoviedb.org/3/movie/120?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "BACK TO THE FUTURE" feed_url="https://api.themoviedb.org/3/movie/105?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "EDGE OF TOMORROW" feed_url="https://api.themoviedb.org/3/movie/137113?api_key=b69145796c919e97d21879a2808340e3"/>
+    <category_node title = "ENCANTO" feed_url="https://api.themoviedb.org/3/movie/568124?api_key=b69145796c919e97d21879a2808340e3"/>
+</ContentNode>
+</RadioButtonList>
+
+<moviedata
+    id="movieData"
+    translation="[1450, 150]"
+    color="0x000000"
+    visible="false"
+/>
+
+<!-- HOME_SCENE.BRS -->
+    m.moviedata = m.top.FindNode("movieData")
+    m.movietitle = m.movieData.FindNode("movieTitleText")
+	m.moviereleasedate = m.movieData.FindNode("releaseDate")
+    m.movietagline = m.movieData.FindNode("tagline")
+	m.movierating = m.movieData.FindNode("rating")
+	m.movieoverview = m.movieData.FindNode("overview")
+
